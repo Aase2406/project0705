@@ -50,6 +50,8 @@ pipeline{
                 }
             }
         }
+
+        
         stage("TRIVY"){
             steps{
                 sh "trivy image aase24/chatbot:latest > trivy.json"
