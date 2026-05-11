@@ -10,7 +10,7 @@ pipeline{
     stages {
         stage('Checkout from Git'){
             steps{
-                git branch: 'master', url: 'https://github.com/Aase2406/NodeJS.git'
+                git branch: 'master', url: 'https://github.com/Aase2406/project0705.git'
             }
         }
         stage('Install Dependencies') {
@@ -42,7 +42,7 @@ pipeline{
         stage("Docker Build & Push"){
             steps{
                 script{
-                   withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
+                   withDockerRegistry(credentialsId: 'docker'){
                        sh "docker build -t chatbot ."
                        sh "docker tag chatbot aase24/chatbot:latest "
                        sh "docker push aase24/chatbot:latest "
